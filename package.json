@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx serve .",
-    "build": "mkdir -p dist && cp index.html dist/index.html && cp standalone.html dist/standalone.html",
-    "preview": "npx serve dist",
-    "build:react": "tsc && vite build"
+    "dev": "vite",
+    "build": "tsc && vite build && cp standalone.html dist/standalone.html",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
@@ -28,5 +27,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
   }
 }

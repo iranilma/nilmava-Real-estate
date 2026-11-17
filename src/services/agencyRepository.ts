@@ -846,7 +846,7 @@ class AgencyRepository {
       category,
       action,
       details,
-      user_identifier: 'Marcus Vance (Principal Broker)',
+      user_identifier: 'Nilma Fernandes (Principal Broker)',
       created_at: new Date().toISOString(),
     };
     store.auditLogs.unshift(newLog);

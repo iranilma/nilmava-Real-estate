@@ -87,7 +87,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate, onOpen
             </span>
           </div>
           <h1 className="text-2xl md:text-3xl font-serif font-bold text-white tracking-wide">
-            {greeting}, Marcus
+            {greeting}, Nilma
           </h1>
           <p className="text-xs md:text-sm text-white/80 leading-relaxed">
             Welcome to the NILMA VA agency command center. You have <strong className="text-[#c5a059]">{showingsThisWeek} showings</strong> scheduled this week, <strong className="text-[#c5a059]">{activeOffers} active offers</strong> under negotiation, and <strong className="text-white">${(closedVolume / 1000000).toFixed(1)}M</strong> in closed volume year-to-date.

@@ -35,9 +35,9 @@ export const INITIAL_AGENTS: Agent[] = [
   {
     id: 'AGT-01',
     organization_id: INITIAL_ORGANIZATION.id,
-    name: 'Marcus Vance',
+    name: 'Nilma Fernandes',
     role: 'Principal Broker',
-    email: 'marcus@nilmava.com',
+    email: 'nilma@nilmava.com',
     phone: '+1 (555) 234-8801',
     avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces',
     annual_quota: 5000000,
@@ -708,7 +708,7 @@ export const INITIAL_TRANSACTIONS: Transaction[] = [
     property_title_snapshot: 'Pacific Horizon Residence',
     client_name_snapshot: 'Lord Alistair Sterling',
     agent_id: 'AGT-01',
-    agent_name_snapshot: 'Marcus Vance',
+    agent_name_snapshot: 'Nilma Fernandes',
     closing_date: '2026-09-15',
     sale_price: 5900000,
     commission_rate: 3.0,
@@ -896,7 +896,7 @@ export const INITIAL_AUDIT_LOGS: AuditLog[] = [
     category: 'System',
     action: 'SYSTEM_INITIALIZED',
     details: 'NILMA VA Real Estate multi-tenant platform initialized with verified demo data layer.',
-    user_identifier: 'Marcus Vance (Principal Broker)',
+    user_identifier: 'Nilma Fernandes (Principal Broker)',
     created_at: '2026-11-16T09:00:00Z',
   },
   {
@@ -914,7 +914,7 @@ export const INITIAL_AUDIT_LOGS: AuditLog[] = [
     category: 'Settlement',
     action: 'TRANSACTION_RECORDED',
     details: 'Settlement TX-801 recorded for Pacific Horizon Residence ($5.9M) with 50/50 split ($88,500 agency).',
-    user_identifier: 'Marcus Vance (Principal Broker)',
+    user_identifier: 'Nilma Fernandes (Principal Broker)',
     created_at: '2026-09-15T15:00:00Z',
   },
   {

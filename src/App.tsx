@@ -1,35 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { OrganizationProvider, useOrganization } from './contexts/OrganizationContext';
 import { ToastProvider, useToast } from './contexts/ToastContext';
 import { AppShell } from './components/layout/AppShell';
 import { NavigationSection } from './types/database';
 
-// Phase 3 Overview & Operational Pages
-import { DashboardPage } from './pages/DashboardPage';
-import { TodayPage } from './pages/TodayPage';
-import { CalendarPage } from './pages/CalendarPage';
-import { TasksPage } from './pages/TasksPage';
+// Code-split pages via dynamic imports
+const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })));
+const TodayPage = lazy(() => import('./pages/TodayPage').then(m => ({ default: m.TodayPage })));
+const CalendarPage = lazy(() => import('./pages/CalendarPage').then(m => ({ default: m.CalendarPage })));
+const TasksPage = lazy(() => import('./pages/TasksPage').then(m => ({ default: m.TasksPage })));
 
-// Phase 3 Clients & Pipeline Pages
-import { LeadsPage } from './pages/LeadsPage';
-import { PipelinePage } from './pages/PipelinePage';
-import { ClientsPage } from './pages/ClientsPage';
+const LeadsPage = lazy(() => import('./pages/LeadsPage').then(m => ({ default: m.LeadsPage })));
+const PipelinePage = lazy(() => import('./pages/PipelinePage').then(m => ({ default: m.PipelinePage })));
+const ClientsPage = lazy(() => import('./pages/ClientsPage').then(m => ({ default: m.ClientsPage })));
 
-// Phase 3 Properties & Seller Pipeline Pages
-import { PropertiesPage } from './pages/PropertiesPage';
-import { ListingPipelinePage } from './pages/ListingPipelinePage';
+const PropertiesPage = lazy(() => import('./pages/PropertiesPage').then(m => ({ default: m.PropertiesPage })));
+const ListingPipelinePage = lazy(() => import('./pages/ListingPipelinePage').then(m => ({ default: m.ListingPipelinePage })));
 
-// Phase 3 Sales & Transactions Pages
-import { ViewingsPage } from './pages/ViewingsPage';
-import { OpenHousesPage } from './pages/OpenHousesPage';
-import { OffersPage } from './pages/OffersPage';
+const ViewingsPage = lazy(() => import('./pages/ViewingsPage').then(m => ({ default: m.ViewingsPage })));
+const OpenHousesPage = lazy(() => import('./pages/OpenHousesPage').then(m => ({ default: m.OpenHousesPage })));
+const OffersPage = lazy(() => import('./pages/OffersPage').then(m => ({ default: m.OffersPage })));
 
-// Phase 3 Business Intelligence & Brokerage Administration Pages
-import { FinancialsPage } from './pages/FinancialsPage';
-import { AnalyticsPage } from './pages/AnalyticsPage';
-import { AgentsPage } from './pages/AgentsPage';
-import { ReportsPage } from './pages/ReportsPage';
-import { SettingsPage } from './pages/SettingsPage';
+const FinancialsPage = lazy(() => import('./pages/FinancialsPage').then(m => ({ default: m.FinancialsPage })));
+const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then(m => ({ default: m.AnalyticsPage })));
+const AgentsPage = lazy(() => import('./pages/AgentsPage').then(m => ({ default: m.AgentsPage })));
+const ReportsPage = lazy(() => import('./pages/ReportsPage').then(m => ({ default: m.ReportsPage })));
+const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 
 // Global Quick Modals
 import { LeadModal } from './components/modals/LeadModal';
@@ -193,7 +189,15 @@ const AppContent: React.FC = () => {
         onNavigate={setCurrentSection}
         onOpenQuickAdd={handleOpenQuickAdd}
       >
-        {renderCurrentSection()}
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center min-h-[400px]">
+              <div className="w-8 h-8 border-3 border-[#c5a059] border-t-transparent rounded-full animate-spin" />
+            </div>
+          }
+        >
+          {renderCurrentSection()}
+        </Suspense>
       </AppShell>
 
       {/* Global Quick Add Modals */}

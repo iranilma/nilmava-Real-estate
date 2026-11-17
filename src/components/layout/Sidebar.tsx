@@ -233,7 +233,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="w-8 h-8 rounded-xl border border-[#c5a059]/60 object-cover"
             />
             <div className="overflow-hidden flex-1">
-              <p className="text-xs font-semibold text-white truncate">Marcus Vance</p>
+              <p className="text-xs font-semibold text-white truncate">Nilma Fernandes</p>
               <p className="text-[10px] text-[#c5a059] truncate flex items-center gap-1 font-medium">
                 <ShieldCheck className="w-3 h-3 text-[#c5a059]" /> Principal Broker
               </p>
