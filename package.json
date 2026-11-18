@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp standalone.html dist/standalone.html",
+    "build": "mkdir -p dist && cp index.html dist/index.html && cp standalone.html dist/standalone.html",
+    "build:react": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
